@@ -2,12 +2,9 @@
 
 # AVR128DA48 GPIO Debouncing Example Code Example
 
-This repository provides an Atmel Studio solution with a bare metal code example for a button debouncing. Using the event system, the button state change will trigger the TCB0 timer configured in single shot mode. A timer interrupt is set to be activated when the timer counter reaches the top value.
+This repository provides an Atmel Studio solution with a bare metal code example for ADC triggered via Event System. Using the event system, the on-board user button state change will trigger the ADC0 to start a conversion and read the analog signal on PD0. 
 
-
-With this setup, when the button on the Curiosity Nano board is pressed, an interrupt will be triggered after ~32 milliseconds, when the button bouncing is over. In this example, the interrupt will turn on the LED0 when the button is pressed, and off when the button is released.
-
-
+With this setup, when the button on the Curiosity Nano board is pressed, an single conversion of the ADC will be triggered on Analog Input 0 (PD0). An interrupt is set to be activated when the ADC conversion cycle is over. Inside the interrupt routine the conversion result is saved and the on-board user LED is toggled to visualize the end of conversion.
 
 ## Related Documentation
 More details and code examples on the AVR128DA48 can be found at the following links:
@@ -30,12 +27,14 @@ The AVR128DA48 Curiosity Nano Development Board is used as test platform
 
 The following configurations must be made for this project:
 
-- EVSYS - Using Channel 3, Port C Pin 7 triggers the TCB0
-- TCB0 - Configured in Single Shot Mode
+- ADC0 - Configured in single conversion mode
+- VREF - Reference voltage for ADC0 set to 2.048V
+- EVSYS - Configure PC7 pin (SW0) as event generator on Channel 3
 |Pin           | Configuration      |
 | :----------: | :----------------: |
 |PC6 (LED0)    | Digital Output     |
 |PC7 (SW0)     | Digital Input      |
+|PD0 (AIN0)    | Analog Input       |
 
 
 ## Operation
@@ -58,4 +57,4 @@ Demo:
 <br><img src="images/AVR-DA_GPIO_Debouncing.gif" width="500">
 
 ## Summary
-This example represents a basic button debouncing implementation. Using the event system, the button state change triggers the timer configured in single shot mode. A timer interrupt is set to be activated when the timer counter reaches the top value.
+This example represents a basic implementation of using ADC via Event System. Using the event system, the button state change triggers the ADC configured in single conversion mode. An interrupt is set to be activated when the ADC conversion cycle is over.
