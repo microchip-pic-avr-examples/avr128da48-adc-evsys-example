@@ -43,7 +43,7 @@ static void ADC0_init(void)
 {
     /* Select CLK_PER prescaled with 2 */
     ADC0.CTRLC = ADC_PRESC_DIV2_gc;
-    /* MUX selection for Positive ADC input */
+    /* Select AIN0 (PD0) as ADC input */
     ADC0.MUXPOS = ADC_MUXPOS_AIN0_gc;
     /* Enable Event System */
     ADC0.EVCTRL = ADC_STARTEI_bm;
@@ -55,10 +55,19 @@ static void ADC0_init(void)
 
 static void PORT_init(void)
 {
+    /* PD0 set as input (AIN0 - Analog Input 0) */
+    PORTD.DIRCLR |= PIN0_bm;
+    /* Disable digital input buffer */
+    PORTD.PIN0CTRL &= ~PORT_ISC_gm;
+    PORTD.PIN0CTRL |= PORT_ISC_INPUT_DISABLE_gc;
+    /* Disable pull-up resistor */
+    PORTD.PIN0CTRL &= ~PORT_PULLUPEN_bm;
+
     /* PC7 set as input (button) */
     PORTC.DIRCLR |= PIN7_bm;
     /* Use internal pull-up resistor */
-    PORTC.PIN7CTRL |= PORT_PULLUPEN_bm;	
+    PORTC.PIN7CTRL |= PORT_PULLUPEN_bm;
+	
     /* PC6 set as output (LED for visualization) */
     PORTC.DIRSET |= PIN6_bm;
 }
