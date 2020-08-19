@@ -3,24 +3,24 @@
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.studio.project.",
-        "version": " ",
-        "displayName": "  ",
-        "projectName": "",
-        "shortDescription": "",
+        "name": "com.microchip.mcu8.studio.project.avr128da48-adc-evsys-example",
+        "version": "1.0.2",
+        "displayName": "AVR128DA48 ADC triggered via Event System - Bare Metal Example",
+        "projectName": "avr128da48-adc-evsys-example",
+        "shortDescription": "This repository provides an Atmel Studio solution with a bare metal code example for ADC triggered via Event System",
         "ide": {
-            "name": "",
-            "semverRange": ""
+            "name": "Atmel Studio",
+            "semverRange": ">=7.0.2397"
         },
         "compiler": [
 			{
-				"name": "",
-				"semverRange": ""
+				"name": "gcc",
+				"semverRange": "5.4.0"
 			}
 		],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "AVR-Dx_DFP",
+            "semverRange": "1.2.56"
         },
         "configurator": {
             "name": "",
@@ -32,26 +32,35 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "AVR128DA48",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
-            "",
+            "Bare-metal",
             [
-               "Peripherals", ""
+               "Peripherals", "ADC"
             ],
             [
-               "Peripherals", ""
-            ]            			
+                "Peripherals", "EVENT SYSTEM"
+            ],  
+            [
+                "Peripherals", "VREF"
+            ],     
+            [
+                "Peripherals", "USART"
+            ]    			
         ],
         "peripherals": [
-            "",""
+            "ADC", "EVENT SYSTEM", "VREF", "USART"
         ],
         "keywords": [
-            "",
-            ""			
+            "mcc",
+            "adc",	
+			"eventsystem",
+			"vref",
+			"usart"
         ],
 		"additionalData": {
 			"longDescription": {
