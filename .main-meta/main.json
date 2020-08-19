@@ -14,7 +14,7 @@
         },
         "compiler": [
 			{
-				"name": "gcc",
+				"name": "avr-gcc",
 				"semverRange": "5.4.0"
 			}
 		],
