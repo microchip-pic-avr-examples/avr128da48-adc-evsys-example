@@ -1,4 +1,4 @@
-<a href="https://www.microchip.com" rel="nofollow"><img src="images/Microchip.png" alt="MCHP" width="300"/></a>
+[![MCHP](images/microchip.png)](https://www.microchip.com)
 
 # AVR128DA48 ADC triggered via Event System - Bare Metal Example
 
