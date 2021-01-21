@@ -41,7 +41,7 @@
             [
                "Peripherals",
 			   "ADC"
-            ],   			
+            ] 			
         ],
         "peripherals": [
             "ADC"
